@@ -8,8 +8,8 @@
   <meta property="og:site_name" content="雷恩的木工世界">
   <meta property="og:title" content="聯絡我 - 雷恩的木工世界">
   <meta property="og:description" content="客製需求、合作邀約，或單純聊聊木工，歡迎跟我聯絡。">
-  <meta property="og:image" content="https://yuming5459-art.github.io/images/works/single-bed-2.jpg">
-  <meta property="og:url" content="https://yuming5459-art.github.io/contact.html">
+  <meta property="og:image" content="https://yuming5459-art.github.io/woodwork-world/images/works/single-bed-2.jpg">
+  <meta property="og:url" content="https://yuming5459-art.github.io/woodwork-world/contact.html">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -45,8 +45,29 @@
   <main>
     <div class="intro">
       <p>不管是想訂製一件屬於自己的木作、對某件作品有興趣，還是純粹想交流木工心得，
-        都歡迎透過以下方式找到我。目前是利用工作之餘慢慢做，回覆可能不會很即時，
-        但我看到都會盡快回覆你！</p>
+        都歡迎填寫下方表單，我會盡快回覆你！</p>
+
+      <form class="contact-form" action="https://formspree.io/f/meeyyqel" method="POST">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="f-name">姓名</label>
+            <input type="text" id="f-name" name="name" placeholder="怎麼稱呼你？" required>
+          </div>
+          <div class="form-field">
+            <label for="f-phone">電話</label>
+            <input type="tel" id="f-phone" name="phone" placeholder="方便聯絡的電話">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="f-email">Email</label>
+          <input type="email" id="f-email" name="email" placeholder="你的 Email，方便我回覆你" required>
+        </div>
+        <div class="form-field">
+          <label for="f-msg">想聊聊的內容</label>
+          <textarea id="f-msg" name="message" rows="5" placeholder="客製尺寸、想做的作品，或單純打聲招呼" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary">送出訊息</button>
+      </form>
 
       <p style="margin-top: 2rem;">
         <strong>Email：</strong>
@@ -58,7 +79,7 @@
       </p>
 
       <p style="margin-top: 2rem; color: var(--text-muted); font-size: 0.9rem;">
-        （這幾個聯絡方式先幫你放上範例，記得換成你真正想公開的 Email 和帳號。）
+        （表單需要到 formspree.io 免費註冊，把網址裡的 YOUR_FORM_ID 換成你自己的表單 ID，訊息才會寄到你的信箱。聯絡方式範例也記得換成你真正想公開的 Email 和帳號。）
       </p>
     </div>
   </main>
