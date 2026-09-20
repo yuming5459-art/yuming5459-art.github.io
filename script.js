@@ -29,3 +29,14 @@ if (slides.length > 0) {
 
   startAutoPlay();
 }
+
+// 手機版選單切換（頁首的 MENU 按鈕）
+const menuToggle = document.querySelector(".menu-toggle");
+const siteHeader = document.querySelector(".site-header");
+if (menuToggle && siteHeader) {
+  menuToggle.addEventListener("click", () => {
+    const open = siteHeader.classList.toggle("is-open");
+    menuToggle.setAttribute("aria-expanded", String(open));
+    menuToggle.setAttribute("aria-label", open ? "收合選單" : "展開選單");
+  });
+}
