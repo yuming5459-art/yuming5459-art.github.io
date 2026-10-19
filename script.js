@@ -40,3 +40,22 @@ if (menuToggle && siteHeader) {
     menuToggle.setAttribute("aria-label", open ? "收合選單" : "展開選單");
   });
 }
+
+// 作品分享頁：依分類篩選作品（沒有 JS 時會顯示全部作品）
+const chips = document.querySelectorAll(".category-strip .chip");
+const workItems = document.querySelectorAll(".work-grid > li[data-category]");
+if (chips.length && workItems.length) {
+  chips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      const key = chip.dataset.filter;
+      chips.forEach((c) => {
+        const on = c === chip;
+        c.classList.toggle("is-active", on);
+        c.setAttribute("aria-pressed", String(on));
+      });
+      workItems.forEach((li) => {
+        li.hidden = key !== "all" && li.dataset.category !== key;
+      });
+    });
+  });
+}

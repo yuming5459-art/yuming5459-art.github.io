@@ -1,7 +1,7 @@
 /* 網站共用樣式 — Rosé Atelier 設計系統
    奶油底、純黑字、一抹亮紅；方角、細線、幾乎沒有陰影；含 RWD 響應式設計。
    下方 :root 的變數就是設計系統的 tokens，之後要調整配色、字級只需要改這一區。 */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;500;600&display=swap');
+/* 字體由各頁 <head> 的 <link> 載入（比 @import 快，不會卡住樣式表）。 */
 
 :root {
   /* ---- 顏色 ---- */
@@ -298,6 +298,9 @@ textarea:focus-visible {
 .hero-slide {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   background-size: cover;
   background-position: center;
   opacity: 0;
@@ -655,6 +658,7 @@ section {
 img.work-photo {
   aspect-ratio: 1 / 1;
   width: 100%;
+  height: auto;            /* 配合 width/height 屬性（防版面跳動），實際比例由 aspect-ratio 決定 */
   object-fit: cover;
   display: block;
 }
@@ -1172,4 +1176,103 @@ main a:not([class]):hover {
   .post-list a::after {
     transition: none;
   }
+}
+
+/* ---------- 麵包屑、上一件/下一件、作品分類篩選 ---------- */
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: 720px;
+  margin: var(--space-5) auto var(--space-4);
+  font-size: 13px;
+  line-height: 20px;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+}
+
+.breadcrumb a {
+  color: var(--ink-muted);
+  text-decoration: none;
+  border-bottom: var(--stroke-hairline) solid var(--rule-soft);
+}
+
+.breadcrumb a:hover {
+  color: var(--signal);
+  border-bottom-color: var(--signal);
+}
+
+.breadcrumb [aria-current="page"] {
+  color: var(--ink);
+}
+
+.work-pager {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-5);
+  margin-top: var(--space-7);
+  padding-top: var(--space-5);
+  border-top: var(--stroke-hairline) solid var(--rule);
+}
+
+.work-pager a {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  max-width: 48%;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.work-pager .pager-next {
+  margin-left: auto;
+  text-align: right;
+}
+
+.work-pager .pager-label {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  color: var(--ink-muted);
+}
+
+.work-pager .pager-title {
+  font-family: var(--font-serif-tc);
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.work-pager a:hover .pager-title {
+  color: var(--signal);
+}
+
+.category-strip {
+  margin-bottom: var(--space-6);
+}
+
+.category-strip .chip {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-4);
+  border: var(--stroke-hairline) solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.category-strip .chip:hover,
+.category-strip .chip.is-active {
+  background: var(--ink);
+  color: var(--surface-cream);
+}
+
+.work-grid > li[hidden] {
+  display: none;
 }

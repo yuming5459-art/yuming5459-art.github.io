@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yuming5459-art.github.io/woodwork-world/sitemap.xml
+Sitemap: https://yuming5459-art.github.io/sitemap.xml
